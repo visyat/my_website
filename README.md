@@ -1,4 +1,4 @@
-# Very First Django Project
+# Very First Django Project - Personal Website V1
 
 Version 3 now displays a basic personal website, with personal details, contact information, hyperlinked text to relevant accomplishments/projects, etc. Used HTML to write the home page template to which the view URL was linked. Additionally, for more complex multi-page websites, can have templates inherited from each other to have the same format, navbar, etc. Can also divide app-specific templates into individual template folders for each app.
 
