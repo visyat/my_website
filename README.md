@@ -1,6 +1,6 @@
 # Very First Django Project
 
-Version 3 now displays a basic personal website, with personal details, contact information, hyperlinked text to relevant accomplishments/projects, etc. Used HTML to write the home page template to which the view URL was linked. Additionally, for more complex multi-page websites, can have templates inherited from each other to have the same format, navbar, etc. Can also divide app-specific templates into individual template folders for each app; inside app: new folder; inside new folder: new folder (named same name as the app); inside have all room-specific templates
+Version 3 now displays a basic personal website, with personal details, contact information, hyperlinked text to relevant accomplishments/projects, etc. Used HTML to write the home page template to which the view URL was linked. Additionally, for more complex multi-page websites, can have templates inherited from each other to have the same format, navbar, etc. Can also divide app-specific templates into individual template folders for each app.
 
 Stored here for posterity, or in case I want to restore it for further modification. Currently, not of high enough quality to publish as a project (demonstrates nothing but an elementary grasp of front-end programming); also need to get on with my actual designated project. 
 
