@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishal Yathish - About</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Freeman&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="logo.png" alt="Home Icon" class="nav-icon"></a>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <!-- <a href="projects.html">Projects</a> -->
+            <a href="resume.pdf" target="_blank">Resume</a>
+        </nav>
+    </header>
+    <main>
+        <div class="card">
+            <h2>Hi! I'm Vishal <img src="https://em-content.zobj.net/source/noto-emoji-animations/344/waving-hand_1f44b.gif" height="50px"></h2>
+            <p>I'm a first-year <strong>Computer Science and Engineering student at UCLA</strong>, set to graduate in June 2025. 
+                I'm from San Francisco, California, where the time is <strong><span id="time"></span> PST</strong> and the weather is <strong><span id="weather"></span>.</strong></p>
+            <p>My primary interests include databases, streaming systems, web information systems, data mining and knowledge graphs.</p>
+        </div>
+        <div class="card">
+            <p> This quarter (Spring 2024), I'm taking:
+                <ul>
+                    <li>COM SCI 33: Computer Organization & Assembly</li>
+                    <li>COM SCI 144: Web Applications</li>
+                    <li>COM SCI 145: Intro to Data Mining</li>
+                    <li>EC ENGR 209AS: Trustworthy AI (Graduate Level)</li>
+                </ul>
+            </p>
+            <p>Here is some of my previously completed coursework.</p>
+        </div>
+        <div class="card">
+            <p>I'm an incoming <strong>Software Development Intern </strong> at <a href="https://www.acceldata.io/">Acceldata</a>, a data observability and pipeline analytics startup, working on their integrations team. 
+                I'm an <strong>undergraduate researcher </strong> at the <a href="https://scai.cs.ucla.edu/">Scalable Analytics Institute (ScAI)</a> under Professor Wei Wang, researching applications/adaptations of Large Language Models for graph algorithmic reasoning,
+                and adapting the structured state space model architecture for graph-based learning. </p>
+            <p>I'm also a <strong>Head Learning Assistant (LA)</strong> for COM SCI 31: Intro to Computer Science I taught by Professor David Smallberg. </p>
+            <p>One project I'm currently working on: 
+                implementation of <a href="https://people.csail.mit.edu/ebakke/research/sieuferd_sigmod2016.pdf">Query By Direct Manipulation</a>; 
+                visual query system with SQL-like expressiveness</p>
+        </div>
+        <div class="card">
+            <p>
+                Some other cool things I've done/been a part of: 
+                <ul>
+                    <li>I'm am inductee for Eta Kappa Nu (House Kappa), Upsilon Pi Epsilon, Tau Beta Pi, Alpha
+                        Lambda Delta, and Phi Eta Sigma Academic and Engineering Honors Societies</li>
+                    <li>Co-hosted Startup Fair LA '24, UCLA's primary startup-focused career fair, with 450+ students attending annually; broke prior years' record student attendance in Jan. 2024</li>
+                    <li>Help organize Bruin Labs, a UCLA based startup accelerator</li>
+                    <li>Host a podcast called <a href="https://open.spotify.com/show/2bZwgOe52p18k5M19RJFSg">On The Rise</a> where I interview early-stage founders and student innovators; has gained 130K+ views. 
+                        Wrote a write-up of lessons learned on <a href="https://medium.com/@vishal.yathish/startup-lessons-from-season-1-on-the-rise-podcast-135332ff5849">Medium</a>.</li>
+                    <li>Played piano for 10+ years, and got the opportunity to play at Carnegie Hall in February 2022; completed Level 10/Advanced Certificate of Merit Examinations in Piano with Branch and State Honors</li>
+                </ul>
+            </p>
+        </div>
+        <div class="card">
+            <p>If any of this interests you, feel free to reach out to me at <strong>vishalyathish1 [at] g [dot] ucla [dot] edu</strong>, or any of the channels on the Home page!</p>
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 Vishal Yathish. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const apiKey = '918b73c52a5fc214237ad333349673ec'; // Replace with your OpenWeatherMap API key
+            const lat = '37.7749';
+            const lon = '-122.4194';
+            const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
+
+            const fetchWeather = fetch(url);
+            fetchWeather
+                .then(function (response) {
+                    return response.json();
+                })
+                .then (function (data) { 
+                    const weather = data.weather[0].description;
+                    const icon = "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
+                    const temp = data.main.temp;
+                    document.getElementById('weather').innerHTML = `${temp}°F, ${weather} <img src=${icon} width="40px">`; //`${weather}, ${temp}°F`;
+                })
+                .catch(function (error) {
+                    console.log('Error fetching weather data:', error);
+                });
+
+            const updateTime = () => {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles' });
+                document.getElementById('time').textContent = timeString;
+            };
+
+            updateTime();
+            setInterval(updateTime, 1000);
+        });
+    </script>
+</body>
+</html>
