@@ -8,18 +8,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Freeman&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="../src/favicon.ico">
 </head>
 <body>
     <header>
         <div class="logo">
-            <a href="index.html"><img src="logo.png" alt="Home Icon" class="nav-icon"></a>
+            <a href="index.html"><img src="../src/logo.png" alt="Home Icon" class="nav-icon"></a>
         </div>
         <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <!-- <a href="projects.html">Projects</a> -->
-            <a href="resume.pdf" target="_blank">Resume</a>
+            <a href="../src/resume.pdf" target="_blank">Resume</a>
         </nav>
     </header>
     <main>
@@ -73,7 +73,7 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const apiKey = '918b73c52a5fc214237ad333349673ec'; // Replace with your OpenWeatherMap API key
+            const apiKey = '918b73c52a5fc214237ad333349673ec';
             const lat = '37.7749';
             const lon = '-122.4194';
             const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
